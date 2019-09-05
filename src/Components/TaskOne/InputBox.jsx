@@ -3,8 +3,7 @@ import { default as List } from './List' //why do we need to use default keyword
 class InputBox extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
-        this.state = { items: [] };
+        this.state = { value: '', items: [] };
 
         this.handleChange = this.handleChange.bind(this);//need to ask about this
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,10 +15,12 @@ class InputBox extends React.Component {
 
     handleSubmit(event) {
         if (this.state.value) {
-            this.state.items.push(this.state.value)
-            this.setState({ value: '' });
+            this.setState(state => {
+                let items = state.items.concat(state.value);
+                return { items, value: '' }
+            })
         }
-        event.preventDefault();//need to ask you about this || no idea why are we using 
+        event.preventDefault();
     }
 
     render() {
@@ -32,7 +33,7 @@ class InputBox extends React.Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
-                <List {...this.state} />
+                <List items={this.state.items} />
             </div>
         );
     }
