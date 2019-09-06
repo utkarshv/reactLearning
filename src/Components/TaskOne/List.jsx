@@ -7,10 +7,10 @@ class List extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        prevState.itemList = nextProps.items.map(element => {
+        const itemList = nextProps.items.map(element => {
             return <li>{element}</li>
         })
-        return null
+        return { itemList: itemList }
     }
 
     render() {
