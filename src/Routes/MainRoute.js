@@ -1,10 +1,14 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { RadioButton, InputBox } from '../Components'
 
 function MainRouter() {
     return (
         <BrowserRouter>
-            <Route path="/login" component={() => <div>hello</div>} />
+            <Switch>
+                <Route path="/taskone" component={InputBox} />
+                <Route path="/" component={RadioButton} />
+            </Switch>
         </BrowserRouter>
     );
 }

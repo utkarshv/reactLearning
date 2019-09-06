@@ -1,0 +1,21 @@
+.color-div{
+    height: 80px;
+    width: 160px;
+    border: solid 1px black;
+    margin-top: 50px;
+}
+.color-div:hover{
+    background-color: chartreuse;
+}
+.red{
+    background-color: red
+}
+.green{
+    background-color: green
+}
+.blue{
+    background-color: blue
+}
+.black{
+    background-color: black
+}
